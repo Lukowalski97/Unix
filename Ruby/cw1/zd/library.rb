@@ -23,8 +23,11 @@ def remove_title(title) #removes books which don't meet title given as argument
   i = 0
   while i < @librhash.length do
     book = @librhash[i]
-   
-    @librhash.delete_at(i) if book['title'] != title
+
+    if book['title'] != title
+      @librhash.delete_at(i) 
+      i-=1
+    end
     i += 1
         end
 
@@ -118,8 +121,11 @@ def options
 end
 
 if $PROGRAM_NAME == __FILE__
-
-    load_library
-    options
+    if ARGV.length==0
+      exit
+    else
+      load_library
+      options
+    end
 end
 

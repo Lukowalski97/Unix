@@ -73,7 +73,7 @@ def parse_option(option_tab)
   end
 end
 
-# parse_option ARGV
+ #parse_option ARGV
 
 if $PROGRAM_NAME == __FILE__
 
@@ -82,11 +82,12 @@ if $PROGRAM_NAME == __FILE__
   #add_person %w[Ruby Adam]
  # add_person %w[Ruby Michal]
 
- add_mark %w[Ruby Andrzej 5.0]
- add_mark %w[Ruby Andrzej 6.0]
- add_mark %w[Ruby Pawel 3.0]
- add_mark %w[JS Adam 1.5 ]
-  write
+ #add_mark %w[Ruby Andrzej 5.0]
+ #add_mark %w[Ruby Andrzej 6.0]
+ #add_mark %w[Ruby Pawel 3.0]
+ #add_mark %w[JS Adam 1.5 ]
+ #write
+parse_option ARGV
 
 
 end

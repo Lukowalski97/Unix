@@ -37,5 +37,5 @@ class TestSum < MiniTest::Test
     add_mark(@marks1)
     add_mark(@marks2)
     assert_equal($maintab,@hash1)
-
+  end
 end

@@ -1,0 +1,9 @@
+kod if warunek1 = sprawdzanie1 ..
+ 	warunek2= sprawdzanie2
+bedzie sie wykoonywal od momentu przyjęcia warunek1 jako true az do warunek2 jako true, wiec mozna np w pętli
+
+hash= Hash.new(0) - nowy nash z wartością domyślną- jak sie nie da argumentu to domyslnie jest nil
+
+o ile funkcja nie zmodyfikuje dlugosci slowa to zostanie on tym samym obiektem
+
+

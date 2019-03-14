@@ -1,0 +1,1 @@
+ruby -n "BEGIN{ tab=[] };    ;END{for word in }" oneline.txt
