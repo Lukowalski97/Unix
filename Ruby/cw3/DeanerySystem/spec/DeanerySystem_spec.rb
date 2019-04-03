@@ -1,0 +1,144 @@
+# Nazwa gema: 'DeanerySystem'
+ 
+RSpec.describe DeanerySystem::Student do
+  before(:each) do
+    @student1 = DeanerySystem::Student.new('JOANNA', 'KOWALSKA')
+    @student1.add_score(4.0)
+    @student1.add_score(5)
+    ######################
+    @student2 = DeanerySystem::Student.new('Jerzy', 'Nowak')
+    @student2.add_score(4)
+    @student2.add_score(4.0)
+  end
+ 
+  it 'has capitalized name' do
+    expect(@student1.first_name).to eq('Joanna')
+    expect(@student1.last_name).to eq('Kowalska')
+  end
+ 
+  it 'has unique id' do
+    expect(@student1.id).not_to eq @student2.id
+  end
+  it 'has unmodifiable id' do
+    expect { @student1.id = 1 }.to raise_error NoMethodError
+  end
+ 
+  it 'can displays full information' do
+    expect { puts @student1 }.to output("Joanna Kowalska [4.0, 5.0] ma_stypendium\n").to_stdout
+    expect { puts @student2 }.to output("Jerzy Nowak [4.0, 4.0] nie_ma_stypendium\n").to_stdout
+  end
+ 
+  it 'can modify personal data' do
+    @student1.first_name = 'Joanna Urszula'
+    @student1.last_name = 'Nowak'
+    expect(@student1.first_name).to eq 'Joanna Urszula'
+    expect(@student1.last_name).to eq 'Nowak'
+  end
+ 
+  it 'properly stores scores' do
+    expect(@student1.scores).to match_array([4.0, 5.0])
+    expect(@student2.scores).to match_array([4.0, 4.0])
+  end
+ 
+  it 'correctly calculates the scholarship possession' do
+    expect(@student1.has_scholarship?).to be_truthy
+    expect(@student2.has_scholarship?).to be_falsy
+  end
+end
+ 
+RSpec.describe DeanerySystem::University do
+  before(:each) do
+    @university = DeanerySystem::University.new
+    @student1 = DeanerySystem::Student.new('JOANNA', 'KOWALSKA')
+    @student2 = DeanerySystem::Student.new('Jerzy', 'Nowak')
+  end
+ 
+  it 'is empty at the beginning' do
+    expect(@university.size).to eq(0)
+  end
+ 
+  it 'properly adds students' do
+    @university.append(@student1)
+    @university.append(@student2)
+    expect(@university.size).to eq(2)
+  end
+ 
+  it 'properly implements the "[]" method' do
+    @university.append(@student1)
+    @university.append(@student2)
+   
+    expect(@university[@student1.id].first_name).to eq(@student1.first_name)
+
+    expect(@university[@student2.id].first_name).to eq(@student2.first_name)
+  end
+ 
+  it 'can display full information' do
+    @university.append(@student1)
+    @university.append(@student2)
+    expect { puts @university }.to output("Joanna Kowalska\nJerzy Nowak\n").to_stdout
+  end
+
+  it 'properly monitor amount of student types' do
+    studentp1 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
+    studentp2 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
+
+    studentf1 = DeanerySystem::Full_time_student.new('JOANNA', 'KOWALSKA')
+
+    @university.append(studentf1)
+    @university.append(studentp1)
+    @university.append(studentp2)
+
+    expect(@university.full_time).to eq (1)
+    expect(@university.part_time).to eq (2)
+
+  end
+
+end
+
+RSpec.describe DeanerySystem::Mark do
+  before(:each) do
+    @marke= DeanerySystem::Mark.new(3.0,"exam")
+    @markp=DeanerySystem::Mark.new(5.0,"partial")
+    @markf=DeanerySystem::Mark.new(4.0,"final")
+
+  end
+
+  it 'properly displays mark info' do 
+    expect {puts @marke}.to output("3.0(exam)\n").to_stdout
+    expect {puts @markf}.to output("4.0(final)\n").to_stdout
+
+    expect {puts @markp}.to output("5.0(partial)\n").to_stdout
+
+    
+  end
+
+
+
+end
+
+RSpec.describe DeanerySystem::Full_time_student do
+  before(:each) do
+    @student1 = DeanerySystem::Full_time_student.new('JOANNA', 'KOWALSKA')
+    @student1.add_score(4.0)
+    @student1.add_score(5)
+  end
+
+  it 'properly displays information about itself' do
+    expect {puts @student1}. to output("Joanna Kowalska [4.0, 5.0] ma_stypendium stacjonarny\n").to_stdout
+  end
+
+
+end
+
+RSpec.describe DeanerySystem::Part_time_student do
+  before(:each) do
+    @student1 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
+    @student1.add_score(4.0)
+    @student1.add_score(5)
+  end
+
+  it 'properly displays information about itself' do
+    expect {puts @student1}. to output("Joanna Kowalska [4.0, 5.0] ma_stypendium niestacjonarny\n").to_stdout
+  end
+
+end

@@ -6,4 +6,4 @@ hash= Hash.new(0) - nowy nash z wartością domyślną- jak sie nie da argumentu
 
 o ile funkcja nie zmodyfikuje dlugosci slowa to zostanie on tym samym obiektem
 
-
+	s1 = :"symbol" definiuje symbol, takie same zawartosci roznych symboli implikuja rownosc obiektu

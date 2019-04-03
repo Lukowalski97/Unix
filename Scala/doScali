@@ -1,8 +1,0 @@
-for w scali i javie to instrukcja; if/else w scali to wyrazenie; w javie jest ternariusz za to;
-for- yield- wyrazenie w scali zwraca kolekcje rzeczy z iteracji;
-while to instrukcja tu i tu; blok kodu w scali to wyraz. o wart. ostatniego wyrazenia;
-a=b=c - w javie przypsianie to wyrazenie a w scali to instrukcja;
-unit w scali to void/ brak zwracanej wartosci instrukcji;
-w drzewie dziedziczenia unit jest pod AnyVal;
-procedura nie zwraca wartosci a funkcja zwraca
-jesli przy definicji nie da sie "=" to mamy procedure, czyli musimy miec def method() ={}

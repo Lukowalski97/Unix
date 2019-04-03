@@ -24,7 +24,7 @@ def remove_title(title) #removes books which don't meet title given as argument
   while i < @librhash.length do
     book = @librhash[i]
 
-    if book['title'] != title
+    if !(book['title'].include? title)
       @librhash.delete_at(i) 
       i-=1
     end
@@ -81,6 +81,7 @@ end
 def parse_argument(argument)
     return argument.split("\\")
 end
+
 def print_help
   puts "Program mozna wlaczyc z nastepujacy opcjami:\n
         --help -h : wlacza pomoc,\n
