@@ -1,12 +1,12 @@
 # Nazwa gema: 'DeanerySystem'
  
-RSpec.describe DeanerySystem::Student do
+RSpec.describe Student do
   before(:each) do
-    @student1 = DeanerySystem::Student.new('JOANNA', 'KOWALSKA')
+    @student1 = Student.new('JOANNA', 'KOWALSKA')
     @student1.add_score(4.0)
     @student1.add_score(5)
     ######################
-    @student2 = DeanerySystem::Student.new('Jerzy', 'Nowak')
+    @student2 = Student.new('Jerzy', 'Nowak')
     @student2.add_score(4)
     @student2.add_score(4.0)
   end
@@ -46,11 +46,11 @@ RSpec.describe DeanerySystem::Student do
   end
 end
  
-RSpec.describe DeanerySystem::University do
+RSpec.describe University do
   before(:each) do
-    @university = DeanerySystem::University.new
-    @student1 = DeanerySystem::Student.new('JOANNA', 'KOWALSKA')
-    @student2 = DeanerySystem::Student.new('Jerzy', 'Nowak')
+    @university = University.new("AGH")
+    @student1 = Student.new('JOANNA', 'KOWALSKA')
+    @student2 = Student.new('Jerzy', 'Nowak')
   end
  
   it 'is empty at the beginning' do
@@ -79,10 +79,10 @@ RSpec.describe DeanerySystem::University do
   end
 
   it 'properly monitor amount of student types' do
-    studentp1 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
-    studentp2 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
+    studentp1 = Part_time_student.new('JOANNA', 'KOWALSKA')
+    studentp2 = Part_time_student.new('JOANNA', 'KOWALSKA')
 
-    studentf1 = DeanerySystem::Full_time_student.new('JOANNA', 'KOWALSKA')
+    studentf1 = Full_time_student.new('JOANNA', 'KOWALSKA')
 
     @university.append(studentf1)
     @university.append(studentp1)
@@ -95,11 +95,11 @@ RSpec.describe DeanerySystem::University do
 
 end
 
-RSpec.describe DeanerySystem::Mark do
+RSpec.describe Mark do
   before(:each) do
-    @marke= DeanerySystem::Mark.new(3.0,"exam")
-    @markp=DeanerySystem::Mark.new(5.0,"partial")
-    @markf=DeanerySystem::Mark.new(4.0,"final")
+    @marke= Mark.new(3.0,"exam")
+    @markp=Mark.new(5.0,"partial")
+    @markf=Mark.new(4.0,"final")
 
   end
 
@@ -116,9 +116,9 @@ RSpec.describe DeanerySystem::Mark do
 
 end
 
-RSpec.describe DeanerySystem::Full_time_student do
+RSpec.describe Full_time_student do
   before(:each) do
-    @student1 = DeanerySystem::Full_time_student.new('JOANNA', 'KOWALSKA')
+    @student1 = Full_time_student.new('JOANNA', 'KOWALSKA')
     @student1.add_score(4.0)
     @student1.add_score(5)
   end
@@ -130,9 +130,9 @@ RSpec.describe DeanerySystem::Full_time_student do
 
 end
 
-RSpec.describe DeanerySystem::Part_time_student do
+RSpec.describe Part_time_student do
   before(:each) do
-    @student1 = DeanerySystem::Part_time_student.new('JOANNA', 'KOWALSKA')
+    @student1 =Part_time_student.new('JOANNA', 'KOWALSKA')
     @student1.add_score(4.0)
     @student1.add_score(5)
   end

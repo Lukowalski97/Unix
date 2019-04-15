@@ -1,0 +1,17 @@
+<h1>Welcomes#index</h1>
+<p>Find me in app/views/welcomes/index.html.erb</p>
+<div id ="main">
+<p>Zmienna ilość: <%=@quantity %></p>
+<p></p>
+<% for i in 1..@quantity%>
+Wiadomość: <%= @message%> <br>
+<% end %>
+<p></p>
+<% for i in 0..(@array.length-1) %>
+@tablica[<%=i%>] = <%=@array[i]%><br>
+<%end%>
+<p></p>
+<%@hash.each do |key,value|%>
+@hash[<%=key%>] = <%=value%><br>
+<%end%>
+</div >

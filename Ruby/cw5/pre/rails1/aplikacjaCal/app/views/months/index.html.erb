@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>Months</title>
+    </head>
+    <body>
+        <h1><%=year%></h1>
+        <ul>
+            <%  @months_hash.each do |num,month_name| %>
+            <li><a href="/months/<%=num%>"><%=month_name%></a></li>
+            <%end%>
+        </ul>
+       
+      
+
+    </body>
+</html

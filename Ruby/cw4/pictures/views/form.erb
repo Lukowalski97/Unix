@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Image Upload</title>
+    </head>
+    <body>
+        <h1>Upload Image</h1>
+
+        <form action="/save_image" method="POST" enctype="multipart/form-data">
+            Plik:<input type="file" name="file">
+            Imie:<input type="text" name="name">
+            Nazwisko:<input type="text" name="surname">
+            <input type="submit" value="Upload image">
+        </form>
+         <%  File.readlines('list').each do |line|  %>
+         <% tmp = line.split(';')     %>
+         <% name = tmp[0] + ' '+ tmp[1]  %>
+         <h1><%= name %> </h1>
+        <img src="<%= tmp[2]  %>" width="200" height="200" />
+        <% end %>
+
+    </body>
+</html
