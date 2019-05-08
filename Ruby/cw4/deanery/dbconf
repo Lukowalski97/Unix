@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+require_relative 'boot'
+
+db_config = {
+  name: 'rom_app_development',
+  host: 'db',
+  user: 'root',
+  password: '',
+  port: 3306,
+  encoding: 'utf8mb4'
+}
+configuration = ROM::Configuration.new(:sql,'sqlite://db-file.db', db_config)
+MAIN_CONTAINER = ROM.container(configuration)
+
+class Students <ROM::Relation[:sql]
+    schema(infer :true)
+    
+end
+

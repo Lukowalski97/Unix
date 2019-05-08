@@ -4,13 +4,13 @@
     </head>
     <body>
         <h1><%=year%></h1>
-        <ul>
+        <%= link_to('Edycja roku', edit_month_path(:year)) %>
+       <div id="lista">
+<ul>
             <%  @months_hash.each do |num,month_name| %>
-            <li><a href="/months/<%=num%>"><%=month_name%></a></li>
+  <li><%= link_to month_name, month_path(num) %></li>
             <%end%>
-        </ul>
-       
-      
-
+</ul>
+        </div >
     </body>
 </html

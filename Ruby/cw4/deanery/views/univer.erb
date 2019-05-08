@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title><%=params[:univer_name]%></title>
+    </head>
+    <body>
+        <h1>Lista Studentów</h1>
+        <ul>
+        <% @students.each do |id,student|%>
+        <li><a href="/universities/<%=params['univer_name'] +"/" + student.id.to_s%>"><%=student.first_name + " "+student.last_name %></a></li>
+
+        <% end %>
+        </ul>
+
+        <p><a href ="/universities"> Powrót na stronę główną</a></p>
+
+    </body>
+</html

@@ -13,6 +13,6 @@ object PasswdGen {
         val passwd= new StringBuilder(passwdLen)
 
         for ( i <- 0 to passwdLen) passwd += nextChar
-        passwd.toStrings
+        passwd.toString
     }
 }

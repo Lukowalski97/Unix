@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Dziekanat</title>
+    </head>
+    <body>
+        
+
+        <h1>Lista Uniwersytetów</h1>
+        <ul>
+        <% @universities.each do |name,univ|%>
+        <li><a href ="/universities/<%=name %>"><%=univ.to_s %></a></li>
+        <% end %>
+        </ul>
+
+        <%if ($wrong_logged) %>
+            <p>Niepoprawne logowanie!</p>
+            <%$wrong_logged=false%>
+        <%end%>
+        <%if (!logged?) %>
+         <form action="/universities" method="post">
+            Username: <input type="text" name="login"><br>
+            Password: <input type="password" name="passwd"><br>
+            <input type="submit" value="Submit">
+        </form> 
+        <%else%>
+          <form action="/universities/logout" method="post">
+            <input type="submit" value="Logout">
+        </form> 
+        <%end%>
+    </body>
+</html

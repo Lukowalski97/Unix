@@ -1,23 +1,47 @@
 <html>
     <head>
-        <title><%=months_hash[@month]%> <%=year%></title>
+        <title><%=months_hash[@month.to_i]%> <%=year%></title>
+        <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
     </head>
     <body>
        
-       <table>
+       <h1><%=year%></h1>
+       <h1><%=months_hash[@month.to_i]%></h1>
+
+        <table id ="tab">
             <tr>
 	            <td>PN</td>	<td>WT</td> <td>ŚR</td> <td>CZ</td> <td>PT</td> <td>SB</td> <td>ND</td>
             </tr>
-            <% i=1 %>
-            <% while (i <=31 && i <= @month_calendar.size) do %>
-            <tr>
-                <%for j in 1..7  %>
-	            <td>check_day(i,j)</td>	
-                <%end%>
-            </tr>
+            
+            <% if @month_calendar[1]!="PN"%>
+                <tr>
             <%end%>
-        </table>
-      
-
+            <%for i in 1..7 do  %>
+                <% if pl_week_days[i] == @month_calendar[1]%>
+                    <%break%>
+                <%else %>
+                    <td> </td>
+                <%end%>
+            <%end%>
+            <% @month_calendar.each do |nr,day|%>
+                <% if day=="PN"%>
+                    <tr>
+                <%end%>
+                <td><%=nr%> </td>
+                 <% if day=="ND"%>
+                    </tr>
+                <%end%>
+                <%@lastday=nr%>
+            <%end%>
+            <% if @month_calendar[@lastday]!="ND"%>
+                </tr>
+            <%end%>
+           
+        </table>      
+          
     </body>
 </html

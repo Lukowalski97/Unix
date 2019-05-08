@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title><%=@student.first_name%></title>
+    </head>
+    <body>
+      
+       <p><%=@student.to_s%></p>
+       <p>Oceny:</p>
+       <ul>
+       <%@student.scores.each do |score| %>
+        <%if authenticate_mark(score)%>
+        <li><a href="universities/<%=params['univer_name'] +"/"params['student_id'].to_s +"/" +score.id%>">score.to_s</a></li>
+        <%else%>
+         <li>score.to_s</li>
+        <%end%>
+       <%end%>
+        </ul>
+         <p><a href ="/universities"> Powrót na stronę główną</a></p>
+    </body>
+</html

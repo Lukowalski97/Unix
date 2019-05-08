@@ -1,0 +1,9 @@
+<%= form_with(url: month_path(:year), method: :put, local: true) do |form| %>
+
+
+<%= form.label :"Edytuj_Rok" %>
+<%= form.text_field :NewYear, :value => year %>
+<p>
+    <%= form.submit %>
+</p>
+<% end %>

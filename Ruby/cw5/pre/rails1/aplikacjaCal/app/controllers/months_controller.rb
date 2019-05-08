@@ -1,23 +1,34 @@
 
 class MonthsController < ApplicationController
+
+
 @@year=2019
-@@pl_week_days={1=>"PN",2=>"WT",3=>"ŚR",4=>"CZ",5=>"PT",6=>"SO",7=>"ND"}
+@@pl_week_days={1=>"PN",2=>"WT",3=>"ŚR",4=>"CZ",5=>"PT",6=>"SB",7=>"ND"}
 @@months_hash= {1=>"Styczeń", 2=>"Luty",3=>"Marzec",4=>"Kwiecień",5=>"Maj",6=>"Czerwiec",
     7=>"Lipiec",8=>"Sierpien",9=>"Wrzesień",10=>"Październik",11=>"Listopad",12=>"Grudzień"}
 
 
 def index 
-@months_hash= {1=>"Styczeń", 2=>"Luty",3=>"Marzec",4=>"Kwiecień",5=>"Maj",6=>"Czerwiec",
-        7=>"Lipiec",8=>"Sierpien",9=>"Wrzesień",10=>"Październik",11=>"Listopad",12=>"Grudzień"}
+@months_hash= @@months_hash
 
 end
 
-def show
+def edit
+    
+end
 
+def update
+@@year= params[:NewYear].to_i
+
+redirect_to action: "index"
+end
+
+
+def show
+    @lastday=0
     @month_calendar= {}
     @month = params[:id]
-   
-
+    
     i=1 
     while (Date.valid_date?(@@year,@month.to_i,i) && i<=31 ) do
 
@@ -54,9 +65,9 @@ end
 def check_day(i,j)
 if ( @@pl_week_days[j]==@month_calendar[i])
     i+=i+1
-    i.to_s
+    return i.to_s
 else
-    "-"
+    return "-"
 end
 
 end
