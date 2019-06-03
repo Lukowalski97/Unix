@@ -1,0 +1,90 @@
+#  Read  about  fixtures  at  http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+one:
+  name:  MyString
+  surname:  MyString
+  mail:  onemail
+  city:  MyString
+
+two:
+    name:  MyString
+    surname:  MyString
+    mail:  twomail
+    city:  MyString
+
+valid:
+    name:  John
+    surname:  Doe
+    mail:  valid@mail.com
+    city:  Johville
+
+valid2:
+    name:  Johnee
+    surname:  Doeyy
+    mail:  valid2@mail.com
+    city:  Johvillee
+
+valid3:
+    name:  Johneedd
+    surname:  Doeyy
+    mail:  valid2@mail.com
+    city:  Johvilleedd
+
+bname:
+    name:  
+    surname:  Doe
+    mail:  bname@mail.com
+    city:  Johville
+
+bsname:
+    name:  John
+    surname:  
+    mail:  bsname@mail.com
+    city:  Johville
+
+bcity:
+    name:  John
+    surname:  Doe
+    mail:  bcity@mail.com
+    city:
+
+bmail:
+    name:  John
+    surname:  Doe
+    mail:  
+    city:  Johville
+
+scity:
+    name:  Jss
+    surname:  Doe
+    mail:  scity@mail.com
+    city:  J
+
+sname:
+  name:  J
+  surname:  Dssa
+  mail:  sname@mail.com
+  city:  Johville
+
+ssname:
+    name:  John
+    surname:  D
+    mail:  ssname@mail.com
+    city:  Johville
+
+wmail1:
+    name:  John
+    surname:  Dee
+    mail:  kok@com
+    city:  Johville
+
+wmail2:
+    name:  John
+    surname:  Deee
+    mail:  kok.com
+    city:  Johville
+
+wmail3:
+    name:  John
+    surname:  Deee
+    mail:  kok
+    city:  Johville

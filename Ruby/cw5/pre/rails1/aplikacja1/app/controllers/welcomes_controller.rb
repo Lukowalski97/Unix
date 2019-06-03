@@ -1,16 +1,16 @@
 class WelcomesController < ApplicationController
   def index
     @quantity=3
-    @message="Siemanko witam"
+    @message=" witam"
     @array=["Panstwa",16,'c',"Bardzo serdecznie"]
-    @hash={"Nazywam" => "Sie Piotr PArafiniuk"}
+    @hash={"kluczyk" => "Wartosc"}
 
     puts  @quantity 
     puts @message
     puts @array
     puts @hash
 
-    console()
+    #console()
    
 
   end

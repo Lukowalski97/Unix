@@ -13,16 +13,16 @@ class WelcomesControllerTest < ActionDispatch::IntegrationTest
     #check that the content matches
     assert_select '#main', html: '<p>Zmienna ilość: 3</p>
 <p></p>
-Wiadomość: Siemanko witam <br>
-Wiadomość: Siemanko witam <br>
-Wiadomość: Siemanko witam <br>
+Wiadomość:  witam <br>
+Wiadomość:  witam <br>
+Wiadomość:  witam <br>
 <p></p>
 @tablica[0] = Panstwa<br>
 @tablica[1] = 16<br>
 @tablica[2] = c<br>
 @tablica[3] = Bardzo serdecznie<br>
 <p></p>
-@hash[Nazywam] = Sie Piotr PArafiniuk<br>'
+@hash[kluczyk] = Wartosc<br>'
 
 end
 end

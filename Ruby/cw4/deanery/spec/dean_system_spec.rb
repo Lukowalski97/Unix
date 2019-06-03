@@ -2,6 +2,14 @@
 ENV['RACK_ENV'] = 'test'
 load 'dean_system.rb'
 require 'rack/test'
+require 'rspec'
+
+require File.expand_path '../spec_helper.rb', __FILE__
+
+
+
+
+
 
 RSpec.describe Student do
     before(:each) do
@@ -44,6 +52,10 @@ RSpec.describe Student do
       expect(@student1.has_scholarship?).to be_truthy
       expect(@student2.has_scholarship?).to be_falsy
     end
+
+    it 'has unique id' do
+      expect(@student1.id).not_to eq @student2.id
+    end
   end
    
   RSpec.describe University do
@@ -70,6 +82,12 @@ RSpec.describe Student do
       expect(@university[@student1.id].first_name).to eq(@student1.first_name)
   
       expect(@university[@student2.id].first_name).to eq(@student2.first_name)
+    end
+
+    it 'properly adds students' do
+      @university.append(@student1)
+      @university.append(@student2)
+      expect(@university.size).to eq(2)
     end
    
    

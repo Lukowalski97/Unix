@@ -9,9 +9,9 @@
        <ul>
        <%@student.scores.each do |score| %>
         <%if authenticate_mark(score)%>
-        <li><a href="universities/<%=params['univer_name'] +"/"params['student_id'].to_s +"/" +score.id%>">score.to_s</a></li>
+        <li><a href="/universities/<%=params['univer_name'] +"/"+ params['student_id'] + "/" + score.id.to_s%>"><%=score.to_s%></a></li>
         <%else%>
-         <li>score.to_s</li>
+         <li><%=score.to_s%></li>
         <%end%>
        <%end%>
         </ul>

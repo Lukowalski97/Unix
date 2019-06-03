@@ -1,0 +1,10 @@
+<h1>Welcomes index</h1>
+<%@welcomes.each  do |welcome| %>
+    <%=welcome.message%><br>
+<%end%>
+<p></p>
+
+<%= form_with url: welcomes_index_path, method: :get, local: true do |f| %>
+  <%=select("welcome", "category_id", Category.all.collect {|p| [ p.name, p.id ] })%>
+  <%= f.submit %>
+<% end %>

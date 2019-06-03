@@ -17,7 +17,7 @@ object Appl {
     val v1 = new Int2DVec(4, 5)
     val v2 = new Int2DVec(4, 5)
     checkPredicate(v1 equals v2, "v1 equals v2")
-    checkPredicate(!(v1 eq v2), "!(v1 eq v2)")
+    checkPredicate(v1 eq v2, "v1 eq v2")
     checkPredicate(v1 == v2, "v1 == v2")
   }
 }

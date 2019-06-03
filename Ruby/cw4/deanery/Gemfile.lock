@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/yanguango/rack-authorize.git
-  revision: f53709df5397f6903815454a4369910a32404fe8
-  specs:
-    rack-authorize (0.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -11,6 +5,7 @@ GEM
     bigdecimal (1.3.5)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
+    diff-lcs (1.3)
     dry-configurable (0.8.2)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -45,6 +40,9 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    rack (2.0.7)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rake (12.3.2)
     rom (4.2.1)
       rom-changeset (~> 1.0, >= 1.0.2)
@@ -79,6 +77,19 @@ GEM
       dry-types (~> 0.12, >= 0.12.1)
       rom-core (~> 4.1)
       sequel (>= 4.49)
+    rspec (3.8.0)
+      rspec-core (~> 3.8.0)
+      rspec-expectations (~> 3.8.0)
+      rspec-mocks (~> 3.8.0)
+    rspec-core (3.8.0)
+      rspec-support (~> 3.8.0)
+    rspec-expectations (3.8.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-mocks (3.8.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.8.0)
+    rspec-support (3.8.0)
     sequel (5.19.0)
     sqlite3 (1.4.0)
     transproc (1.0.3)
@@ -90,10 +101,11 @@ DEPENDENCIES
   awesome_print
   bigdecimal (= 1.3.5)
   pry
-  rack-authorize!
+  rack-test
   rake
   rom
   rom-sql
+  rspec
   sqlite3
 
 BUNDLED WITH

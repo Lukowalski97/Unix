@@ -1,0 +1,19 @@
+
+      <%= form_with(url: client_path(@id), method: :put, local: true) do |form| %>
+
+
+            <%= form.label :"Imię" %>
+            <%= form.text_field :name, :value => @client["imie"] %>
+            <p>
+            <%= form.label :"Nazwisko" %>
+            <%= form.text_field :surname, :value => @client["nazwisko"] %>
+            <p>
+            <%= form.label :"Mail" %>
+            <%= form.text_field :mail, :value => @client["mail"] %>
+            <p>
+            <%= form.label :"Miasto" %>
+            <%= form.text_field :city, :value => @client["miasto"] %>
+            <p>
+                <%= form.submit %>
+            </p>
+            <% end %>

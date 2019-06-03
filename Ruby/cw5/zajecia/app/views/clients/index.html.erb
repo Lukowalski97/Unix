@@ -1,0 +1,18 @@
+
+       
+       <div id="lista">
+        <ul>
+            <%  get_clients.each do |client| %>
+             
+             <li><a href="clients/<%=get_clients.index(client)%>"> <%=client["imie"] + " " + client["nazwisko"]%></a>
+             <%= link_to 'Edytuj',edit_client_path(get_clients.index(client)) %></li>
+             
+             <%end%>
+           
+           <p>
+            
+           
+        </ul>
+        <%= link_to 'Utworz klienta',new_client_path() %>
+        </div >
+   

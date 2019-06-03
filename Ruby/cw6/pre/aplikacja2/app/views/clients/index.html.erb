@@ -1,0 +1,18 @@
+
+       
+       <div id="lista">
+        <ul>
+            <%  Client.all.each do |client| %>
+             
+             <li> <%= link_to client.name + " " + client.surname, client_path(client)%>
+             <%= link_to 'Edit',edit_client_path(client) %></li>
+             
+             <%end%>
+           
+           <p>
+            
+           
+        </ul>
+        <%= link_to 'Create client',new_client_path() %>
+        </div >
+   

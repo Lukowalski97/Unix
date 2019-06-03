@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Edycja</title>
+    </head>
+    <body>
+      <%= form_with( url: clients_path,method: :post, local: true) do |form| %>
+
+
+            <%= form.label :"Imię" %>
+            <%= form.text_field :name, :value => "John" %>
+            <p>
+            <%= form.label :"Nazwisko" %>
+            <%= form.text_field :surname, :value => "Doe" %>
+            <p>
+            <%= form.label :"Mail" %>
+            <%= form.text_field :mail, :value => "Doe@mail.com" %>
+            <p>
+            <%= form.label :"Miasto" %>
+            <%= form.text_field :city, :value => "Wadowice" %>
+            <p>
+                <%= form.submit "Stwórz klienta" %>
+            </p>
+            <% end %>
+
+        
+     
+    </body>
+</html

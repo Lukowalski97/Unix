@@ -1,0 +1,10 @@
+
+        <%if (@client != nil)%>
+        <h1><%=@client["imie"] +" "+ @client["nazwisko"] %></h1>
+        <p><%="Mail: " +@client["mail"] +", miasto: " + @client["miasto"]%></p>
+        <p><%= link_to 'Usuń', client_path(@id),
+              method: :delete%></p>
+       <%else %>
+       <h1>Nie znaleziono klienta o podanym id!</h1>
+       <%end%>
+       

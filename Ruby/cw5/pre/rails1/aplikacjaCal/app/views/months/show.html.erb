@@ -14,7 +14,7 @@
 
         <table id ="tab">
             <tr>
-	            <td>PN</td>	<td>WT</td> <td>ŚR</td> <td>CZ</td> <td>PT</td> <td>SB</td> <td>ND</td>
+	            <td>PN</td>	<td>WT</td> <td>ŚR</td> <td>CZ</td> <td>PT</td> <td>SB</td> <td style="color:red">ND</td>
             </tr>
             
             <% if @month_calendar[1]!="PN"%>
@@ -31,7 +31,11 @@
                 <% if day=="PN"%>
                     <tr>
                 <%end%>
+                <% if day=="ND"%>
+                    <td style="color:red"><%=nr%> </td>
+                <%else%>
                 <td><%=nr%> </td>
+                <%end%>
                  <% if day=="ND"%>
                     </tr>
                 <%end%>

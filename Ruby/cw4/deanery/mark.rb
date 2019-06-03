@@ -8,13 +8,14 @@ class Mark
 
     
 
-    def initialize(val,type,teacher_id,id )
+    def initialize(val,type,teacher_id=0,id=0 )
       if(type != "exam" && type !="partial" && type !="final")
         raise ArgumentError, "Wrong type of mark!! should be exam/partial/final"
       end
       @TYPE=type 
       @VAL= val
       @teacher_id=teacher_id
+      @id=id
     end
 
     

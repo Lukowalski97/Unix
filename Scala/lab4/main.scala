@@ -12,6 +12,7 @@ object utils {
       case Red => "Irene Jacob"
   }
 }
+
 object Appl {
   def main(args: Array[String]) {
     for (part <- ThreeColors.values) println(part.toString + ": " + utils.leadingActor(part))

@@ -123,7 +123,7 @@ end
 #init_End
 
 
-$wrong_logged=true
+$wrong_logged=false
 
 def logged?
   $logged_user!=nil
@@ -150,7 +150,7 @@ def login (login,passwd,rom)
      
       return true
     end
-    puts teacher
+    
   end
   return false
 end
@@ -219,12 +219,11 @@ get '/universities/:univer_name/:student_id' do
   students=university.students
   
   @student = students[params['student_id'].to_i]
+ 
 
   if(@student ==nil || !authenticate_student(@student))
     redirect "/universities/students/error"
   end
-  
-
   
 
 erb :univer_student
@@ -267,23 +266,25 @@ get '/universities/:univer_name/:student_id/:mark_id' do
 
   $mark_id=@mark.id
   $student_id=student.id
-  $univer_id= university.id
+  $univer_name= university.name
   erb :univer_mark
 
 end
 
-post "universities/marks" do 
+post '/universities/marks' do
 
   prepare(rom)
 
-  university= @universities[$univer_id]
+  university= @universities[$univer_name]
   students=university.students
   student = students[$student_id]
   student.scores.each do |score|
     if(score.id ==$mark_id)
-      score= Mark.new(params['value'],params['type'],score.teacher_id,score.id)
+      
+      score= Mark.new(params['value'].to_f,params['type'].to_s,score.teacher_id,score.id)
+      
 
-      @marks_hash.by_pk($mark_id).changeset(:update, type: params['type'], val: params['value']).commit
+      @marks_hash.by_pk($mark_id).changeset(:update, type: params['type'].to_s, val: params['value'].to_f).commit
 
 
     end

@@ -1,0 +1,10 @@
+<h1>Categories index</h1>
+<%@categories.each do |category|%>
+    <p>
+    <%= "Kategoria: " + category.name %><br>
+    Powitania:<br>
+    <% category.welcomes.each do |welcome|%>
+        <%=welcome.message %><br>
+    <%end%>
+    </p>
+<%end%>

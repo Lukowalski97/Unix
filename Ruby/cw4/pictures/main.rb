@@ -7,6 +7,9 @@ get '/' do
 end
 
 post '/save_image' do
+  if params[:file]==nil  || params[:file][:filename]==nil
+    redirect '/'
+  end
   @filename = params[:file][:filename]
   file = params[:file][:tempfile]
   @name = params[:name]
